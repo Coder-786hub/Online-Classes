@@ -1,6 +1,7 @@
 from tkinter import *
 from tkinter import messagebox
 from PIL import Image, ImageTk
+from tkinter import  ttk
 
 # ================================================LabelFrame===================================
 
@@ -38,12 +39,24 @@ f1.place(x = 30, y = 20)
 l1 = Label(f1, text = "Name")
 l1.place(x = 10, y = 10)
 
+l2 = Label(f1, text = "Gender")
+l2.place(x = 10, y = 40)
+
 e1 = Entry(f1, bg = "red")
 e1.place(x = 70, y = 10)
+
+combo = ttk.Combobox(f1, textvariable = StringVar(), state = "readonly", values = ["Male", "Female"])
+combo.current(0)
+combo.place(x = 90, y = 40)
+
+
 
 f2 = LabelFrame(root, text = "Conatct No", width = 300, height = 150, font = "arial 20 bold", fg = "green")
 f2.place(x = 350, y = 20)
 
+combo = Spinbox(f2, textvariable = StringVar(), state = "readonly", values = ["Male", "Female"])
+# combo.current(0)
+combo.place(x = 90, y = 40)
 # number = Label(f2, text = "Contact No", )
 
 f3 = LabelFrame(root, text = "All Buttons", width = 600, height = 150, font = "arial 20 bold", fg = "red")
