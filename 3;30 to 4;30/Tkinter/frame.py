@@ -1,20 +1,59 @@
 from tkinter import *
+from tkinter import messagebox
+from PIL import Image, ImageTk
 
-# ========================================================Label Frame=============================================
+# ================================================LabelFrame===================================
+
+def exit_():
+    root.destroy()
+
+def submit():
+    input_ = e1.get()
+    if input_== "":
+        messagebox.showerror("Error", "Insert something")
+    else:
+        messagebox.showinfo("Success", "Data Submited")    
+
 
 root = Tk()
 root.geometry("700x400")
 root.title("Frame")
-root.config(bg = "green")
+# root.config(bg = "green")
+root.iconbitmap("icon.ico")
+
+image = Image.open("Jarvis.jpg")
+image = image.resize((700, 400))
+image = ImageTk.PhotoImage(image)
+
+background_label = Label(root, image=image)
+background_label.place(x=0, y=0, relwidth=1, relheight=1)
+
+
+
+
 
 f1 = LabelFrame(root, text = "Deatils", width = 300, height = 150, font = "arial 20 bold", fg = "red")
 f1.place(x = 30, y = 20)
 
-f1 = LabelFrame(root, text = "Conatct No", width = 300, height = 150, font = "arial 20 bold", fg = "green")
-f1.place(x = 350, y = 20)
+l1 = Label(f1, text = "Name")
+l1.place(x = 10, y = 10)
 
-f1 = LabelFrame(root, text = "All Buttons", width = 600, height = 150, font = "arial 20 bold", fg = "red")
-f1.place(x = 30, y = 200)
+e1 = Entry(f1, bg = "red")
+e1.place(x = 70, y = 10)
+
+f2 = LabelFrame(root, text = "Conatct No", width = 300, height = 150, font = "arial 20 bold", fg = "green")
+f2.place(x = 350, y = 20)
+
+# number = Label(f2, text = "Contact No", )
+
+f3 = LabelFrame(root, text = "All Buttons", width = 600, height = 150, font = "arial 20 bold", fg = "red")
+f3.place(x = 30, y = 200)
+
+btn = Button(f3, text = "SUBMIT", bg = "green", font = "arial 20 bold", bd = 4, relief = "groove", command = submit)
+btn.place(x = 10, y = 10)
+
+exit_btn = Button(f3, text = "EXIT", bg = "red", font = "arial 20 bold", bd = 4, command = exit)
+exit_btn.place(x = 500, y = 10)
 
 root.mainloop()
 

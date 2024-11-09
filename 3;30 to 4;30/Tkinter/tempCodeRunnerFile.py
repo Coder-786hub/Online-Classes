@@ -1,2 +1,2 @@
 
-l1 = Label()
+img = ImageTk.PhotoImage(image)
